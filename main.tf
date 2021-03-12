@@ -164,6 +164,50 @@ resource "azurerm_network_interface" "app_1_nic" {
   }
 }
 
+# Create VMs
+
+resource "azurerm_virtual_machine" "ghes_30_data_0" {
+  name                  = "ghes_30_data_0"
+  location              = var.location
+  resource_group_name   = azurerm_resource_group.rg.name
+  network_interface_ids = [azurerm_network_interface.data_0_nic.id]
+  vm_size               = "Standard_DS12_v2"
+
+  storage_os_disk {
+    name              = "ghes_30_data_0_root_disk"
+    caching           = "ReadWrite"
+    create_option     = "FromImage"
+    managed_disk_type = "Premium_LRS"
+    disk_size_gb      = 200
+  }
+
+  storage_data_disk {
+    name              = "ghes_30_data_0_data_disk"
+    caching           = "ReadWrite"
+    create_option     = "Empty"
+    managed_disk_type = "Premium_LRS"
+    disk_size_gb      = 100
+    lun               = 10
+  }
+
+  storage_image_reference {
+    publisher = "GitHub"
+    offer     = "GitHub-Enterprise"
+    sku       = "GitHub-Enterprise"
+    version   = var.ghes_version
+  }
+
+  os_profile {
+    computer_name  = "ghes-30-data-0"
+    admin_username = var.admin_username
+    admin_password = var.admin_password
+  }
+
+  os_profile_linux_config {
+    disable_password_authentication = false
+  }
+}
+
 # Create load balancer
 
 resource "azurerm_public_ip" "ghes_30_lb_publicip" {
@@ -175,9 +219,11 @@ resource "azurerm_public_ip" "ghes_30_lb_publicip" {
 }
 
 resource "azurerm_public_ip" "ghes_30_lb" {
-  name                = "ghes_30_lb"
-  location            = var.location
-  resource_group_name = azurerm_resource_group.rg.name
-  allocation_method   = "Static"
-  sku                 = var.azure_sku
+  name                          = "ghes_30_lb"
+  location                      = var.location
+  resource_group_name           = azurerm_resource_group.rg.name
+  allocation_method             = "Static"
+  sku                           = var.azure_sku
+
+  # We need to come back and define frontend/backend/rules
 }
