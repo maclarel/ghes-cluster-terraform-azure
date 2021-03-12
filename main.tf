@@ -90,7 +90,7 @@ resource "azurerm_public_ip" "app_0_publicip" {
   sku                 = "Standard"
 }
 
-resource "azurerm_public_ip" "data_0_publicip" {
+resource "azurerm_public_ip" "app_1_publicip" {
   name                = "app_1_PublicIP"
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
