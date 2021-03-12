@@ -1,2 +1,3 @@
-# ghes_cluster_terraform_azure
-Terraform workflow to create a GitHub Enterprise Server cluster in Azure
+# Terraform workflow to create a GitHub Enterprise Server cluster in Azure
+
+Note that the prompts for username/password are required by Azure, but don't aren't actually used by the GitHub Enterprise Server VMs at all.
