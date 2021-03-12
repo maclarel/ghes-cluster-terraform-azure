@@ -38,7 +38,7 @@ resource "azurerm_subnet" "subnet" {
   address_prefixes     = ["10.0.1.0/24"]
 }
 
-# Create Network Security Group and rule
+# Create Network Security Group and rule for GHES client ports
 resource "azurerm_network_security_group" "nsg" {
   name                = "ghes_30_NSG"
   location            = var.location
@@ -55,4 +55,128 @@ resource "azurerm_network_security_group" "nsg" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+}
+
+# Create public IPs for each VM
+resource "azurerm_public_ip" "data_0_publicip" {
+  name                = "data_0_PublicIP"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.rg.name
+  allocation_method   = "Static"
+  sku                 = "Standard"
+}
+
+resource "azurerm_public_ip" "data_1_publicip" {
+  name                = "data_1_PublicIP"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.rg.name
+  allocation_method   = "Static"
+  sku                 = "Standard"
+}
+
+resource "azurerm_public_ip" "data_2_publicip" {
+  name                = "data_2_PublicIP"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.rg.name
+  allocation_method   = "Static"
+  sku                 = "Standard"
+}
+
+resource "azurerm_public_ip" "app_0_publicip" {
+  name                = "app_0_PublicIP"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.rg.name
+  allocation_method   = "Static"
+  sku                 = "Standard"
+}
+
+resource "azurerm_public_ip" "data_0_publicip" {
+  name                = "app_1_PublicIP"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.rg.name
+  allocation_method   = "Static"
+  sku                 = "Standard"
+}
+
+# Create network interfaces for each VM
+resource "azurerm_network_interface" "data_0_nic" {
+  name                      = "data_0_NIC"
+  location                  = var.location
+  resource_group_name       = azurerm_resource_group.rg.name
+
+  ip_configuration {
+    name                          = "data_0_NICConfg"
+    subnet_id                     = azurerm_subnet.subnet.id
+    private_ip_address_allocation = "dynamic"
+    public_ip_address_id          = azurerm_public_ip.data_0_publicip.id
+  }
+}
+
+resource "azurerm_network_interface" "data_1_nic" {
+  name                      = "data_1_NIC"
+  location                  = var.location
+  resource_group_name       = azurerm_resource_group.rg.name
+
+  ip_configuration {
+    name                          = "data_1_NICConfg"
+    subnet_id                     = azurerm_subnet.subnet.id
+    private_ip_address_allocation = "dynamic"
+    public_ip_address_id          = azurerm_public_ip.data_1_publicip.id
+  }
+}
+
+resource "azurerm_network_interface" "data_2_nic" {
+  name                      = "data_2_NIC"
+  location                  = var.location
+  resource_group_name       = azurerm_resource_group.rg.name
+
+  ip_configuration {
+    name                          = "data_2_NICConfg"
+    subnet_id                     = azurerm_subnet.subnet.id
+    private_ip_address_allocation = "dynamic"
+    public_ip_address_id          = azurerm_public_ip.data_2_publicip.id
+  }
+}
+
+resource "azurerm_network_interface" "app_0_nic" {
+  name                      = "app_0_NIC"
+  location                  = var.location
+  resource_group_name       = azurerm_resource_group.rg.name
+
+  ip_configuration {
+    name                          = "app_0_NICConfg"
+    subnet_id                     = azurerm_subnet.subnet.id
+    private_ip_address_allocation = "dynamic"
+    public_ip_address_id          = azurerm_public_ip.app_0_publicip.id
+  }
+}
+
+resource "azurerm_network_interface" "app_1_nic" {
+  name                      = "app_1_NIC"
+  location                  = var.location
+  resource_group_name       = azurerm_resource_group.rg.name
+
+  ip_configuration {
+    name                          = "app_1_NICConfg"
+    subnet_id                     = azurerm_subnet.subnet.id
+    private_ip_address_allocation = "dynamic"
+    public_ip_address_id          = azurerm_public_ip.app_1_publicip.id
+  }
+}
+
+# Create load balancer
+
+resource "azurerm_public_ip" "ghes_30_lb_publicip" {
+  name                = "ghes_30_lb_PublicIP"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.rg.name
+  allocation_method   = "Static"
+  sku                 = "Standard"
+}
+
+resource "azurerm_public_ip" "ghes_30_lb" {
+  name                = "ghes_30_lb"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.rg.name
+  allocation_method   = "Static"
 }
