@@ -5,6 +5,10 @@ variable "location" {
     type = string
 }
 
+variable "azure_sku" {
+    type = string
+}
+
 #variable "admin_username" {
 #    type = string
 #    description = "Administrator user name for virtual machine"

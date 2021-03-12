@@ -63,7 +63,7 @@ resource "azurerm_public_ip" "data_0_publicip" {
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Static"
-  sku                 = "Standard"
+  sku                 = var.azure_sku
 }
 
 resource "azurerm_public_ip" "data_1_publicip" {
@@ -71,7 +71,7 @@ resource "azurerm_public_ip" "data_1_publicip" {
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Static"
-  sku                 = "Standard"
+  sku                 = var.azure_sku
 }
 
 resource "azurerm_public_ip" "data_2_publicip" {
@@ -79,7 +79,7 @@ resource "azurerm_public_ip" "data_2_publicip" {
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Static"
-  sku                 = "Standard"
+  sku                 = var.azure_sku
 }
 
 resource "azurerm_public_ip" "app_0_publicip" {
@@ -87,7 +87,7 @@ resource "azurerm_public_ip" "app_0_publicip" {
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Static"
-  sku                 = "Standard"
+  sku                 = var.azure_sku
 }
 
 resource "azurerm_public_ip" "app_1_publicip" {
@@ -95,7 +95,7 @@ resource "azurerm_public_ip" "app_1_publicip" {
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Static"
-  sku                 = "Standard"
+  sku                 = var.azure_sku
 }
 
 # Create network interfaces for each VM
@@ -171,7 +171,7 @@ resource "azurerm_public_ip" "ghes_30_lb_publicip" {
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Static"
-  sku                 = "Standard"
+  sku                 = var.azure_sku
 }
 
 resource "azurerm_public_ip" "ghes_30_lb" {
@@ -179,4 +179,5 @@ resource "azurerm_public_ip" "ghes_30_lb" {
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Static"
+  sku                 = var.azure_sku
 }
