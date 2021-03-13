@@ -37,3 +37,9 @@ Edit `terraform.tfvars` to choose Azure Region, and GitHub Enterprise Server ver
 terraform init
 terraform apply
 ```
+
+## To Do
+
+- Add more variable support
+- Clean up formatting/comments
+- Figure out a way to split this into multiple files (???)
