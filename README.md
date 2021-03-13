@@ -27,9 +27,9 @@ brew update && brew install azure-cli
 az login
 ```
 
-### Update variables 
+### Update variables
 
-Edit `terraform.tfvars` to choose Azure Region, and GitHub Enterprise Server version
+Edit `terraform.tfvars` to choose Azure Region, cluster name, domain, and GitHub Enterprise Server version
 
 ### Run the workflow
 

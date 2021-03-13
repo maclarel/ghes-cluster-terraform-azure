@@ -9,7 +9,19 @@ variable "azure_sku" {
     type = string
 }
 
+variable "domain" {
+    type = string
+}
+
+
 variable "ghes_version" {
+    type = string
+    description = "GitHub Enterprise Server version (e.g. 3.0.2)"
+}
+
+variable "cluster_name" {
+    type = string
+    description = "Cluster name (e.g. ghes3). Must be valid as part of a hostname."
 }
 
 variable "admin_username" {

@@ -1,3 +1,5 @@
+cluster_name = "ghes-30"
+domain = "tsamcluster.net"
 location = "eastus"
-azure_sku = "Standard"
 ghes_version = "2.22.7"
+azure_sku = "Standard"
