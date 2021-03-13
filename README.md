@@ -13,11 +13,27 @@ The GitHub Enterprise Server version can be specified in the `terraform.tfvars` 
 
 ## How do I use it?
 
+### Install Terraform
+
 ```
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
+```
+
+### Install Azure CLI & Log in
+
+```
 brew update && brew install azure-cli
-az login # log in to Azure here
+az login
+```
+
+### Update variables 
+
+Edit `terraform.tfvars` to choose Azure Region, and GitHub Enterprise Server version
+
+### Run the workflow
+
+```
 terraform init
 terraform apply
 ```
