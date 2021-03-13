@@ -29,7 +29,7 @@ az login
 
 ### Update variables
 
-Edit `terraform.tfvars` to choose Azure Region, cluster name, domain, and GitHub Enterprise Server version
+Edit `terraform.tfvars` to choose Azure Region, cluster name, domain, instance sizes, and GitHub Enterprise Server version
 
 ### Run the workflow
 
