@@ -7,7 +7,7 @@ This workflow creates a simple 5 node GitHub Enterprise Server cluster infrastru
 
 An example `cluster.conf` file can be found [here](https://docs.github.com/en/enterprise-server@3.0/admin/enterprise-management/initializing-the-cluster#about-the-cluster-configuration-file).
 
-The GitHub Enterprise Server version can be specified in the `terraform.tfvars` file, along with the Azure region.
+The GitHub Enterprise Server version can be specified in the `terraform.tfvars` file, along with the Azure region, and other configuration options.
 
 **Note:** The prompts for username/password are required by Azure for VM creation, but don't aren't actually used by the GitHub Enterprise Server VMs at all.
 
