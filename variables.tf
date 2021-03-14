@@ -7,6 +7,7 @@ variable "location" {
 
 variable "azure_sku" {
     type = string
+    default = "Standard"
 }
 
 variable "domain" {
@@ -28,9 +29,32 @@ variable "cluster_name" {
     description = "Cluster name (e.g. ghes3). Must be valid as part of a hostname."
 }
 
+variable "azure_sku" {
+    type = string
+    default = ["Standard"]
+}
+
 variable "vm_size" {
     type = string
     description = "Azure VM size (e.g. Standard_DS12_v2)"
+}
+
+variable "root_disk_size" {
+    type = number
+    description = "Size of root disk for VMs"
+    default = 100
+}
+
+variable "data_node_disk_size" {
+    type = number
+    description = "Size of /data/user disk for data-tier VMs"
+    default = 100
+}
+
+variable "app_node_disk_size" {
+    type = number
+    description = "Size of /data/user disk for app-tier VMs"
+    default = 100
 }
 
 variable "admin_username" {

@@ -211,7 +211,7 @@ resource "azurerm_virtual_machine" "app_0" {
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Premium_LRS"
-    disk_size_gb      = 200
+    disk_size_gb      = var.root_disk_size
   }
 
   storage_data_disk {
@@ -219,8 +219,8 @@ resource "azurerm_virtual_machine" "app_0" {
     caching           = "ReadWrite"
     create_option     = "Empty"
     managed_disk_type = "Premium_LRS"
-    disk_size_gb      = 100
-    lun               = 10
+    disk_size_gb      = var.app_node_disk_size
+    lun               = 0
   }
 
   storage_image_reference {
@@ -253,7 +253,7 @@ resource "azurerm_virtual_machine" "app_1" {
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Premium_LRS"
-    disk_size_gb      = 200
+    disk_size_gb      = var.root_disk_size
   }
 
   storage_data_disk {
@@ -261,8 +261,8 @@ resource "azurerm_virtual_machine" "app_1" {
     caching           = "ReadWrite"
     create_option     = "Empty"
     managed_disk_type = "Premium_LRS"
-    disk_size_gb      = 100
-    lun               = 10
+    disk_size_gb      = var.app_node_disk_size
+    lun               = 0
   }
 
   storage_image_reference {
@@ -295,7 +295,7 @@ resource "azurerm_virtual_machine" "data_0" {
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Premium_LRS"
-    disk_size_gb      = 200
+    disk_size_gb      = var.root_disk_size
   }
 
   storage_data_disk {
@@ -303,8 +303,8 @@ resource "azurerm_virtual_machine" "data_0" {
     caching           = "ReadWrite"
     create_option     = "Empty"
     managed_disk_type = "Premium_LRS"
-    disk_size_gb      = 100
-    lun               = 10
+    disk_size_gb      = var.data_node_disk_size
+    lun               = 0
   }
 
   storage_image_reference {
@@ -337,7 +337,7 @@ resource "azurerm_virtual_machine" "data_1" {
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Premium_LRS"
-    disk_size_gb      = 200
+    disk_size_gb      = var.root_disk_size
   }
 
   storage_data_disk {
@@ -345,8 +345,8 @@ resource "azurerm_virtual_machine" "data_1" {
     caching           = "ReadWrite"
     create_option     = "Empty"
     managed_disk_type = "Premium_LRS"
-    disk_size_gb      = 100
-    lun               = 10
+    disk_size_gb      = var.data_node_disk_size
+    lun               = 0
   }
 
   storage_image_reference {
@@ -379,7 +379,7 @@ resource "azurerm_virtual_machine" "data_2" {
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Premium_LRS"
-    disk_size_gb      = 200
+    disk_size_gb      = var.root_disk_size
   }
 
   storage_data_disk {
@@ -387,8 +387,8 @@ resource "azurerm_virtual_machine" "data_2" {
     caching           = "ReadWrite"
     create_option     = "Empty"
     managed_disk_type = "Premium_LRS"
-    disk_size_gb      = 100
-    lun               = 10
+    disk_size_gb      = var.data_node_disk_size
+    lun               = 0
   }
 
   storage_image_reference {
