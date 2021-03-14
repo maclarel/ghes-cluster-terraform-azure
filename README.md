@@ -40,7 +40,4 @@ terraform apply
 
 ## To Do
 
-- Add more variable support
-- Clean up formatting/comments
-- Figure out a way to split this into multiple files (???)
 - Figure out how to address timeouts/out-of-order operations from erroring out when running `terraform destroy`
