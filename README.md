@@ -38,6 +38,10 @@ terraform init
 terraform apply
 ```
 
+## Known Issues
+
+- Current DNS configuration only resolves through Azure DNS servers. An `/etc/hosts` entry is provided in the output of the `terraform apply` which can be added for direct access.
+
 ## To Do
 
-- Figure out how to address timeouts/out-of-order operations from erroring out when running `terraform destroy`
+- Figure out how to address timeouts/out-of-order operations from erroring out when running `terraform destroy`.
