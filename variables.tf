@@ -29,11 +29,6 @@ variable "cluster_name" {
     description = "Cluster name (e.g. ghes3). Must be valid as part of a hostname."
 }
 
-variable "azure_sku" {
-    type = string
-    default = ["Standard"]
-}
-
 variable "vm_size" {
     type = string
     description = "Azure VM size (e.g. Standard_DS12_v2)"
