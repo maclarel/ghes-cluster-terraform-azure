@@ -29,6 +29,8 @@ az login
 
 ### Update variables (optional)
 
+You'll be prompted for various values if they're not handled from a config file and/or don't have defaults.
+
 - Copy/rename `terraform.tfvars.example` to `terraform.tfvars`
 - Edit `terraform.tfvars` to choose Azure Region, cluster name, domain, instance/disk sizes, GitHub Enterprise Server version, etc...
 
@@ -45,4 +47,5 @@ terraform apply
 
 ## To Do
 
+- Add further LB health probes for non-HTTPS traffic.
 - Figure out how to address timeouts/out-of-order operations from erroring out when running `terraform destroy`.
