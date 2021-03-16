@@ -1,9 +1,9 @@
-cluster_name = "ghes3"
-domain = "example.net"
+cluster_name = "30"
+domain = "tsamcluster.net"
 location = "eastus"
-ghes_version = "3.0.2"
+ghes_version = "3.0.1"
 vm_size = "Standard_DS12_v2"
-creator = "Your Name Here"
+creator = "@maclarel"
 # root_disk_size = 200
 # data_node_disk_size = 100
 # app_node_disk_size = 100

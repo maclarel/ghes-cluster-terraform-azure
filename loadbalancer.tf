@@ -39,10 +39,10 @@ resource "azurerm_network_interface_backend_address_pool_association" "lb_pool_a
 
 # Create load balancer health probe
 
-resource "azurerm_lb_probe" "lb_probe" {
+resource "azurerm_lb_probe" "lb_probe_443" {
   resource_group_name = azurerm_resource_group.rg.name
   loadbalancer_id     = azurerm_lb.lb.id
-  name                = "${var.cluster_name}_cluster_health_probe"
+  name                = "${var.cluster_name}_cluster_health_probe_443"
   port                = 443
 }
 
@@ -90,6 +90,7 @@ resource "azurerm_lb_rule" "lb_rule_TCP_443" {
   backend_port                   = 443
   frontend_ip_configuration_name = "${var.cluster_name}_lb_public_ip"
   backend_address_pool_id        = azurerm_lb_backend_address_pool.lb_backend_address_pool.id
+  probe_id                       = azurerm_lb_probe.lb_probe_443.id
 }
 
 resource "azurerm_lb_rule" "lb_rule_TCP_8080" {

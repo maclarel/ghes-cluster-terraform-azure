@@ -95,5 +95,5 @@ output "initial_setup_url" {
 
 output "add_to_etc_hosts" {
   description = "Value to add to /etc/hosts to account for Azure DNS"
-  value       = "${data.azurerm_public_ip.data_0_public_ip.ip_address} ${var.cluster_name}.${var.domain}"
+  value       = "${data.azurerm_public_ip.lb_public_ip.ip_address} ${var.cluster_name}.${var.domain}"
 }

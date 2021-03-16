@@ -37,7 +37,7 @@ variable "vm_size" {
 variable "root_disk_size" {
     type = number
     description = "Size of root disk for VMs"
-    default = 100
+    default = 200
 }
 
 variable "data_node_disk_size" {
