@@ -1,9 +1,0 @@
-cluster_name = "ghes3"
-domain = "example.net"
-location = "eastus"
-ghes_version = "3.0.2"
-vm_size = "Standard_DS12_v2"
-creator = "Your Name Here"
-# root_disk_size = 200
-# data_node_disk_size = 100
-# app_node_disk_size = 100
