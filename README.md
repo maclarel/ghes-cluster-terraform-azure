@@ -45,6 +45,9 @@ terraform apply
 
 - Current DNS configuration only resolves through Azure DNS servers. An `/etc/hosts` entry is provided in the output of the `terraform apply` which can be added for direct access.
 
+## Notes
+- This is provided as-is and *should not be used in a Production capacity*.
+
 ## To Do
 
 - Add further LB health probes for non-HTTPS traffic.
